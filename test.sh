@@ -5,14 +5,13 @@ mkdir -p gnupg
 
 eval $(gpg-agent --verbose --daemon)
 
-
-cat <<'__EOT__' >auto.txt
+cat <<'__EOT__' >batch.txt
 %echo Generating a basic OpenPGP key
 Key-Type: DSA
 Key-Length: 1024
 Subkey-Type: ELG-E
 Subkey-Length: 1024
-Name-Real: Taylor Monacelli
+Name-Real: M. Taylor Monacelli
 Name-Comment: with stupid passphrase
 Name-Email: taylormonacelli@gmail.com
 Expire-Date: 1
@@ -26,12 +25,14 @@ __EOT__
 
 chmod -R go-rwx gnupg
 
-gpg --gen-key --homedir=gnupg --batch auto.txt
+gpg --gen-key --homedir=gnupg --batch batch.txt
 
 # generage revoke.asc  manual
-# gpg --output revoke.asc --gen-revoke tailor@u.washington.edu
-# gpg --status-fd 2 --command-fd 0 --gen-revoke --homedir=gnupg --output revoke.asc tailor@u.washington.edu
+# gpg --output revoke.asc --gen-revoke taylormonacelli@gmail.com
+gpg --status-fd 2 --command-fd 0 --gen-revoke --homedir=gnupg --output revoke.asc taylormonacelli@gmail.com
 
 # https://www.gnupg.org/gph/en/manual/x56.html
-gpg --output taylor.gpg --export tailor@u.washington.edu
-gpg --armor --export tailor@u.washington.edu
+gpg --homedir=gnupg --output taylor.gpg --export taylormonacelli@gmail.com
+gpg --homedir=gnupg --armor --export taylormonacelli@gmail.com
+
+gpg --homedir=gnupg --list-keys

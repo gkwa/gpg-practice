@@ -4,5 +4,5 @@ clean:
 	rm -rf gnupg
 	rm -f revoke.asc
 	rm -f taylor.gpg
-	rm -f auto.txt
+	rm -f batch.txt
 	rm -f taylor.gpg
