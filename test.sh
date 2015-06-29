@@ -14,7 +14,7 @@ Subkey-Type: ELG-E
 Subkey-Length: 1024
 Name-Real: Taylor Monacelli
 Name-Comment: with stupid passphrase
-Name-Email: tailor@u.washington.edu
+Name-Email: taylormonacelli@gmail.com
 Expire-Date: 1
 Passphrase: abc
 #%pubring pubring.gpg
