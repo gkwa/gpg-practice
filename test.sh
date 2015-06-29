@@ -8,9 +8,9 @@ eval $(gpg-agent --verbose --daemon)
 cat <<'__EOT__' >batch.txt
 %echo Generating a basic OpenPGP key
 Key-Type: DSA
-Key-Length: 1024
+Key-Length: 2048
 Subkey-Type: ELG-E
-Subkey-Length: 1024
+Subkey-Length: 2048
 Name-Real: M. Taylor Monacelli
 Name-Comment: with stupid passphrase
 Name-Email: taylormonacelli@gmail.com
